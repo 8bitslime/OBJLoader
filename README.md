@@ -1,2 +1,2 @@
-# OBJLoader
-Just a very simple OBJ file loader that works about 90% of the time
+# OBJLoader (Java)
+Just a very simple OBJ file loader in Java that works about 90% of the time

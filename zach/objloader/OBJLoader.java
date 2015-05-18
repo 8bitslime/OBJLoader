@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class OBJLoader {
 	
+	private OBJLoader() {}
+	
 	public static boolean REVERSE_FACE_ORDER = false;
 	
 	public static Map<String, OBJModel> load(String fileName) {
@@ -23,7 +25,7 @@ public class OBJLoader {
 			
 			String currentName = "";
 			OBJModel currentModel = null;
-			for (String s : Files.readAllLines(Paths.get(fileName), null)) {
+			for (String s : Files.readAllLines(Paths.get(fileName))) {
 				if (s.startsWith("o ")) {
 					if (!currentName.equalsIgnoreCase("")) {
 						//Face Building
@@ -130,16 +132,16 @@ public class OBJLoader {
 	private static final List<Float> faceBuilder(List<Float> verts, List<Float> texts, List<Float> norms, List<Integer> indices) {
 		List<Float> output = new ArrayList<Float>();
 		for (int i = 0; i < indices.size(); i += 3) {
-			output.add(verts.get(((i+0)*3)+0));
-			output.add(verts.get(((i+0)*3)+1));
-			output.add(verts.get(((i+0)*3)+2));
+			output.add(verts.get(((indices.get(i+0))*3)+0));
+			output.add(verts.get(((indices.get(i+0))*3)+1));
+			output.add(verts.get(((indices.get(i+0))*3)+2));
 			
-			output.add(texts.get(((i+1)*2)+0));
-			output.add(texts.get(((i+1)*2)+1));
+			output.add(texts.get(((indices.get(i+1))*2)+0));
+			output.add(texts.get(((indices.get(i+1))*2)+1));
 			
-			output.add(norms.get(((i+2)*3)+0));
-			output.add(norms.get(((i+2)*3)+1));
-			output.add(norms.get(((i+2)*3)+2));
+			output.add(norms.get(((indices.get(i+2))*3)+0));
+			output.add(norms.get(((indices.get(i+2))*3)+1));
+			output.add(norms.get(((indices.get(i+2))*3)+2));
 		}
 		return output;
 	}

@@ -64,8 +64,8 @@ public class OBJModel {
 		
 		int pos = 0;
 		this.indices = new int[indices.length];
-		for (Integer i : indices)
-			this.indices[pos++] = i;
+		for (int i = 0; i < indices.length; i++)
+			this.indices[pos++] = indices[i] == null ? i : indices[i];
 	}
 
 	@Override

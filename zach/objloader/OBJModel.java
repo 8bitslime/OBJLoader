@@ -77,31 +77,15 @@ public class OBJModel {
 		return vertices;
 	}
 
-	public void setVertices(float[] vertices) {
-		this.vertices = vertices;
-	}
-
 	public float[] getTextCoords() {
 		return textCoords;
-	}
-
-	public void setTextCoords(float[] textCoords) {
-		this.textCoords = textCoords;
 	}
 
 	public float[] getNormals() {
 		return normals;
 	}
 
-	public void setNormals(float[] normals) {
-		this.normals = normals;
-	}
-
 	public int[] getIndices() {
 		return indices;
-	}
-
-	public void setIndices(int[] indices) {
-		this.indices = indices;
 	}
 }
